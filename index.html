@@ -14,16 +14,27 @@
     .title { font-weight: bold; margin: 0.25rem 0; }
 
     /* molecule styles */
-    #molecule { margin-top: auto; padding-top: 3rem; padding-bottom: 2rem; text-align: center; }
-    .molecule-card {
-      display: inline-block;
+    #bottom-modules {
+      margin-top: auto;
+      padding-top: 3rem;
+      padding-bottom: 2rem;
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .module-card {
       border: 1px solid #ddd;
       border-radius: 8px;
       padding: 1.5rem;
       background: #fafafa;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      width: 300px;
+      box-sizing: border-box;
+      text-align: center;
     }
-    .molecule-card img { max-width: 300px; display: block; }
+    #molecule { }
+    .molecule-card img { max-width: 100%; display: block; }
     .molecule-name {
       font-family: 'Futura Std', 'Futura', 'Century Gothic', sans-serif;
       font-weight: 700;
@@ -43,14 +54,53 @@
       opacity: 0.5;
       margin-top: 0.25rem;
     }
+
+    /* molar mass calculator styles */
+    #molar-calc { display: flex; flex-direction: column; justify-content: center; }
+    #molar-calc h3 { margin: 0 0 0.75rem 0; font-size: 0.9rem; opacity: 0.6; font-weight: normal; }
+    #mm-editor {
+      font-size: 20px;
+      padding: 10px;
+      border: 2px solid #333;
+      border-radius: 4px;
+      min-height: 32px;
+      text-align: left;
+      box-sizing: border-box;
+    }
+    #mm-editor:focus { outline: none; border-color: #0066cc; caret-color: transparent; }
+    #mm-editor:empty::before {
+      content: 'H₂O, NaCl...';
+      color: #999;
+    }
+    .mm-cursor {
+      display: inline-block;
+      background: #0066cc;
+      margin: 0 1px;
+      animation: blink 1s step-end infinite;
+    }
+    .mm-cursor.normal { height: 16px; vertical-align: baseline; width: 10px; }
+    .mm-cursor.sub { height: 14px; vertical-align: sub; background: #22c55e; width: 7px; }
+    @keyframes blink { 50% { opacity: 0; } }
+    #mm-hint { color: #666; font-size: 11px; margin-top: 6px; }
+    #mm-result { font-size: 1.1rem; margin-top: 12px; font-weight: bold; min-height: 1.5em; }
   </style>
 </head>
 <body>
   <h1>Chem Announcements</h1>
   <div id="announcements">Loading...</div>
-  <div id="molecule"></div>
+  
+  <div id="bottom-modules">
+    <div id="molecule" class="module-card"></div>
+    <div id="molar-calc" class="module-card">
+      <h3>Molar Mass Calculator</h3>
+      <div id="mm-editor" contenteditable="true"></div>
+      <p id="mm-hint">Space/↓ subscript · ↑ exit · Enter calculate</p>
+      <div id="mm-result"></div>
+    </div>
+  </div>
 
   <script src="announcements.js"></script>
   <script src="molecule.js"></script>
+  <script src="molarmass.js"></script>
 </body>
 </html>
