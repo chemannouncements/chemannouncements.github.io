@@ -5,7 +5,8 @@ const FILTERED_HASHES = new Set([
   '7e66b5', '2069cb', 'f68a11', 'fc7b52', '261b6c', '1c8dcc', '0a990e',
   '1afc50', '3b4f36', '3bad45', 'f393ed', 'c344fd', '6ffdf0', '92ffee',
   'ffe418', '0d551e', '01c062', 'bb602e', '39c7ad', 'ee6f01', '5f6b81',
-  '323e37', '55b804', '9763a4', '87595d', '2ac913', '25375a', '26fdca', '9e0cc3'
+  '323e37', '55b804', '9763a4', '87595d', '2ac913', '25375a', '26fdca', '9e0cc3',
+  'f3cf97'
 ]);
 
 async function hashStr(str) {
