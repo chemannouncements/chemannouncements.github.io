@@ -15,8 +15,15 @@
 
     /* molecule styles */
     #molecule { margin-top: 3rem; text-align: center; }
-    .molecule-card { display: inline-block; }
-    .molecule-card img { max-width: 300px; }
+    .molecule-card {
+      display: inline-block;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1.5rem;
+      background: #fafafa;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .molecule-card img { max-width: 300px; display: block; }
     .molecule-name {
       font-family: 'Futura Std', 'Futura', 'Century Gothic', sans-serif;
       font-weight: 700;
