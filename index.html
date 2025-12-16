@@ -6,7 +6,7 @@
   <title>Chem Announcements</title>
   <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/futura-std-4">
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 600px; margin: 2rem auto; padding: 0 1rem; }
+    body { font-family: system-ui, sans-serif; max-width: 600px; margin: 2rem auto; padding: 0 1rem; min-height: calc(100vh - 4rem); display: flex; flex-direction: column; }
     h1 { margin-bottom: 2rem; }
     .announcement { border-bottom: 1px solid #ccc; padding: 1rem 0; }
     .announcement:last-child { border-bottom: none; }
@@ -14,7 +14,7 @@
     .title { font-weight: bold; margin: 0.25rem 0; }
 
     /* molecule styles */
-    #molecule { margin-top: 3rem; text-align: center; }
+    #molecule { margin-top: auto; padding-top: 3rem; padding-bottom: 2rem; text-align: center; }
     .molecule-card {
       display: inline-block;
       border: 1px solid #ddd;
@@ -36,6 +36,12 @@
       font-family: 'Futura Std', 'Futura', 'Century Gothic', sans-serif;
       font-style: italic;
       opacity: 0.7;
+    }
+    .molecule-weight {
+      font-family: 'Futura Std', 'Futura', 'Century Gothic', sans-serif;
+      font-size: 0.9rem;
+      opacity: 0.5;
+      margin-top: 0.25rem;
     }
   </style>
 </head>
