@@ -58,12 +58,10 @@ function loadMolecule(containerId = 'molecule') {
       }
 
       container.innerHTML = `
-        <div class="molecule-card">
           <img src="https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/${cid}/PNG?image_size=300x300" alt="${name}">
           <div class="molecule-name">${name}</div>
           <div class="molecule-formula">${formatFormula(props.MolecularFormula || '')}</div>
           <div class="molecule-weight">${Number(props.MolecularWeight).toFixed(2)} g/mol</div>
-        </div>
       `;
     })
     .catch(() => {
