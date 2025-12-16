@@ -11,11 +11,45 @@
     .announcement:last-child { border-bottom: none; }
     .date { color: #666; font-size: 0.875rem; }
     .title { font-weight: bold; margin: 0.25rem 0; }
+    #status { position: fixed; bottom: 1rem; right: 1rem; width: 12px; height: 12px; border-radius: 50%; background: #888; }
+    #status.ok { background: #22c55e; }
+    #status.error { background: #ef4444; }
   </style>
 </head>
 <body>
   <h1>Chem Announcements</h1>
   <div id="announcements">Loading...</div>
-  <script src="announcements.js"></script>
+  <div id="status" title="Loading..."></div>
+
+  <script>
+    // scripts to load and verify
+    const scripts = ['announcements.js'];
+    let loaded = 0;
+    let failed = false;
+
+    function updateStatus() {
+      const el = document.getElementById('status');
+      if (failed) {
+        el.className = 'error';
+        el.title = 'Script error';
+      } else if (loaded === scripts.length) {
+        el.className = 'ok';
+        el.title = 'All systems go';
+      }
+    }
+
+    scripts.forEach(src => {
+      fetch(src, { method: 'HEAD' })
+        .then(r => {
+          if (!r.ok) throw new Error();
+          const script = document.createElement('script');
+          script.src = src;
+          script.onload = () => { loaded++; updateStatus(); };
+          script.onerror = () => { failed = true; updateStatus(); };
+          document.body.appendChild(script);
+        })
+        .catch(() => { failed = true; updateStatus(); });
+    });
+  </script>
 </body>
 </html>
