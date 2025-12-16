@@ -1,4 +1,5 @@
 const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSkOj0xJHVZalCcttJrOebjVufrOb6-eEOfFqLTZzzAgTHgSFppfWhiR_ihdCSnIGBYCVnoGecdQ2q_/pub?output=csv';
+//created by Alexander Shinkeyev
 
 function parseCSV(csv) {
   const rows = [];
