@@ -21,7 +21,9 @@
       display: flex;
       gap: 1.5rem;
       justify-content: center;
+      align-items: center;
       flex-wrap: wrap;
+      width: 100%;
     }
     .module-card {
       border: 1px solid #ddd;
@@ -30,12 +32,12 @@
       background: #fafafa;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       width: 300px;
-      max-width: calc(100vw - 4rem);
+      max-width: 100%;
       box-sizing: border-box;
       text-align: center;
     }
     #molecule { }
-    .molecule-card img { max-width: 100%; display: block; }
+    .molecule-card img { max-width: 100%; height: auto; display: block; }
     .molecule-name {
       font-family: 'Futura Std', 'Futura', 'Century Gothic', sans-serif;
       font-weight: 700;
